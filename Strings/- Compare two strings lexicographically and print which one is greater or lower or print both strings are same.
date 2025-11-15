@@ -1,0 +1,11 @@
+#include <stdio.h>
+#include <string.h>
+int main() {
+    char str1[100], str2[100];
+    gets(str1); gets(str2);
+    int cmp = strcmp(str1, str2);
+    if(cmp == 0) printf("Strings are same\n");
+    else if(cmp > 0) printf("First is greater\n");
+    else printf("Second is greater\n");
+    return 0;
+}
