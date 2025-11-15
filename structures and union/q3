@@ -1,0 +1,21 @@
+#include <stdio.h>
+
+struct student_data {
+    int roll;
+    char name[50];
+    int phy, chem, math, total;
+};
+
+int main() {
+    struct student_data s;
+    printf("Enter Roll No, Name, Physics, Chemistry, Maths marks:\n");
+    scanf("%d", &s.roll);
+    getchar(); // clear newline
+    gets(s.name);
+    scanf("%d %d %d", &s.phy, &s.chem, &s.math);
+    s.total = s.phy + s.chem + s.math;
+
+    printf("Roll: %d\nName: %s\nPhysics: %d\nChemistry: %d\nMaths: %d\nTotal: %d\n",
+           s.roll, s.name, s.phy, s.chem, s.math, s.total);
+    return 0;
+}
