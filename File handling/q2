@@ -1,0 +1,20 @@
+#include <stdio.h>
+
+int main() {
+    FILE *fp = fopen("lines.txt", "w");
+    char line[100];
+    int choice;
+
+    do {
+        printf("Enter a line: ");
+        gets(line); // use fgets(line, sizeof(line), stdin) in modern compilers
+        fputs(line, fp);
+        fputc('\n', fp);
+        printf("Add another line? (1=Yes / 0=No): ");
+        scanf("%d", &choice);
+        getchar(); // clear newline
+    } while (choice == 1);
+
+    fclose(fp);
+    return 0;
+}
