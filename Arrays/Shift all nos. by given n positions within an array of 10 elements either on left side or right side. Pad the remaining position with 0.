@@ -1,0 +1,13 @@
+#include <stdio.h>
+int main() {
+    int a[10], b[10] = {0}, n, dir;
+    for(int i=0;i<10;i++) scanf("%d", &a[i]);
+    printf("Enter shift (n) and direction (0=left, 1=right): ");
+    scanf("%d %d", &n, &dir);
+    for(int i=0;i<10;i++) {
+        int pos = dir ? i+n : i-n;
+        if(pos >= 0 && pos < 10) b[pos] = a[i];
+    }
+    for(int i=0;i<10;i++) printf("%d ", b[i]);
+    return 0;
+}
