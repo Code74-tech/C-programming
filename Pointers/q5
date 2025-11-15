@@ -1,0 +1,15 @@
+#include <stdio.h>
+#include <string.h>
+int main() {
+    char name[100], *token;
+    gets(name);
+
+    token = strtok(name, " ");
+    while(token) {
+        char *next = strtok(NULL, " ");
+        if(next) printf("%c. ", token[0]); // Abbreviate
+        else printf("%s", token);          // Last name
+        token = next;
+    }
+    return 0;
+}
