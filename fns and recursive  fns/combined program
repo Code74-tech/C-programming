@@ -1,0 +1,21 @@
+#include <stdio.h>
+int power(int a, int b) { int r=1; for(int i=0;i<b;i++) r*=a; return r; }
+int isLeap(int y) { return (y%400==0 || (y%100!=0 && y%4==0)); }
+int factorial(int n) { return (n<=1) ? 1 : n * factorial(n-1); }
+void swap(int x, int y) { int t=x; x=y; y=t; printf("Inside: x=%d y=%d\n",x,y); }
+void findMinMax(int a[], int n, int *min, int *max) {
+    *min=*max=a[0]; for(int i=1;i<n;i++) {
+        if(a[i]<*min) *min=a[i]; if(a[i]>*max) *max=a[i];
+    }
+}
+int main() {
+    int choice;
+    printf("1.Power 2.Leap 3.Factorial 4.Swap 5.MinMax\nEnter choice: ");
+    scanf("%d", &choice);
+    if(choice==1) printf("2^3 = %d\n", power(2,3));
+    else if(choice==2) printf("2024 is %s\n", isLeap(2024)?"Leap":"Not Leap");
+    else if(choice==3) printf("Fact(5) = %d\n", factorial(5));
+    else if(choice==4) { int a=10,b=20; swap(a,b); printf("Outside: a=%d b=%d\n",a,b); }
+    else if(choice==5) { int a[]={1,3,5,2,9},min,max; findMinMax(a,5,&min,&max); printf("Min=%d Max=%d\n",min,max); }
+    return 0;
+}
