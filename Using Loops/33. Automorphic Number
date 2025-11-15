@@ -1,0 +1,19 @@
+#include <stdio.h>
+int main() {
+    int num, sq, temp, match = 1;
+    printf("Enter number: ");
+    scanf("%d", &num);
+    sq = num * num;
+    temp = num;
+    while(temp > 0) {
+        if(temp % 10 != sq % 10) {
+            match = 0;
+            break;
+        }
+        temp /= 10;
+        sq /= 10;
+    }
+    if(match) printf("Automorphic");
+    else printf("Not Automorphic");
+    return 0;
+}
