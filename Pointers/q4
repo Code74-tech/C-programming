@@ -1,0 +1,15 @@
+#include <stdio.h>
+int main() {
+    char *books[3];
+    char temp[100];
+    for(int i=0; i<3; i++) {
+        printf("Enter book %d: ", i+1);
+        gets(temp);
+        books[i] = strdup(temp); // Allocates and copies string
+    }
+
+    printf("Book names:\n");
+    for(int i=0; i<3; i++)
+        puts(books[i]);
+    return 0;
+}
