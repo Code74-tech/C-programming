@@ -1,0 +1,26 @@
+#include <stdio.h>
+
+int main() {
+    FILE *fp = fopen("students.csv", "w");
+    int roll;
+    char name[50];
+    int choice;
+
+    fprintf(fp, "Roll No,Name\n"); // CSV header
+
+    do {
+        printf("Enter Roll No: ");
+        scanf("%d", &roll);
+        getchar(); // clear newline
+        printf("Enter Name: ");
+        gets(name); // or use fgets(name, sizeof(name), stdin)
+        fprintf(fp, "%d,%s\n", roll, name);
+        printf("Add another record? (1=Yes / 0=No): ");
+        scanf("%d", &choice);
+        getchar();
+    } while (choice == 1);
+
+    fclose(fp);
+    printf("Data saved in students.csv. You can open it directly in MS Excel.\n");
+    return 0;
+}
