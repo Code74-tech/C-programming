@@ -1,0 +1,40 @@
+#include <stdio.h>
+#include <string.h>
+
+struct Customer {
+    int accNo;
+    char name[50];
+    float balance;
+};
+
+void printLowBalance(struct Customer c[], int n) {
+    for(int i = 0; i < n; i++)
+        if(c[i].balance < 100)
+            printf("Acc: %d Name: %s\n", c[i].accNo, c[i].name);
+}
+
+void transaction(struct Customer c[], int n, int acc, float amt, int code) {
+    for(int i = 0; i < n; i++) {
+        if(c[i].accNo == acc) {
+            if(code == 1) c[i].balance += amt;
+            else {
+                if(c[i].balance >= amt) c[i].balance -= amt;
+                else printf("The balance is insufficient for the specified withdrawal.\n");
+            }
+            return;
+        }
+    }
+    printf("Account not found.\n");
+}
+
+int main() {
+    struct Customer c[10] = {
+        {1001, "Raj", 90.0},
+        {1002, "Simran", 150.0},
+        // Add more customers
+    };
+    printLowBalance(c, 2);
+    transaction(c, 2, 1001, 50, 0); // Withdraw
+    transaction(c, 2, 1002, 100, 1); // Deposit
+    return 0;
+}a
