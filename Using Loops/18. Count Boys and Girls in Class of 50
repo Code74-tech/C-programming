@@ -1,0 +1,13 @@
+#include <stdio.h>
+int main() {
+    int i, boys = 0, girls = 0;
+    char sex;
+    printf("Enter sex code (B/G) for 50 students:\n");
+    for(i = 0; i < 50; i++) {
+        scanf(" %c", &sex);
+        if(sex == 'B' || sex == 'b') boys++;
+        else if(sex == 'G' || sex == 'g') girls++;
+    }
+    printf("Boys = %d, Girls = %d", boys, girls);
+    return 0;
+}
